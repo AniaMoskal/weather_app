@@ -179,13 +179,14 @@ hr {
 
 .codedby {
     font-weight: 500;
-    size: 5px;
+    font-size: 5px;
     text-align: center;
+    padding: -40px;
 }
 
 .codedbyref {
     font-weight: 500;
-    size: 5px;
+    font-size: 5px;
     color: #EBB9CB;
     text-align: center;
 }
