@@ -177,3 +177,13 @@ hr {
     font-size: small;
 }
 
+.codedby {
+    font-weight: 500;
+    size: 15px;
+}
+
+.codedbyref {
+    font-weight: 500;
+    size: 15px;
+    color: #EBB9CB;
+}
