@@ -17,7 +17,7 @@ body{
 }
 
 .main {
-    font-size: 35px;
+    font-size: 25px;
     color: #BAD8FC;
     display: block;
     font-family: 'Montserrat', sans-serif;
@@ -39,10 +39,12 @@ body{
 }
 
 .bigicon {
-    font-size: 100px;
+    font-size: 80px;
     color: #FCFCD4;
     text-align: center;
-    margin-top: 40%;
+    padding: 15px 0 0 15px;
+    margin-bottom: 40px;
+
     
 }
 .temperaturechoose {
@@ -52,7 +54,7 @@ body{
     font-weight: 900;
     width: 50px;
     box-shadow: 2px 2px 1px #aaaaaa;
-    margin-left: 115px;
+    margin-left: 70px;
     margin-top: 15px;
     border-radius: 4px;
 }
