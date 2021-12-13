@@ -22,12 +22,22 @@
     <div class="card" style="width: 36rem;">
         <div class="card-body">
             <div class="row">
-                 <section class="col-5 main">
-                    <div id="city">
+                 <div class="cityname" id="city">
                         BERLIN
+                    </div>
+                 <section class="col-8 main">
+                    <div id="day">
+                        FRIDAY
                     </div>
                     <div id="time">
                         16:00
+                    </div>
+                    <span class="currenttemprature" id="currenttemprature">
+                        10
+                    </span>
+                    <span class="currenttemprature" id="temperaturesymbol">°C</span>
+                     <div>
+                       <span class="currentweather" id="currentweather"> RAINY </span>
                     </div>
                     <div>
                         FEELS LIKE <br />
@@ -35,23 +45,14 @@
                             <span class="feelstemprature" id="feelstempraturesymbol">°C</span>
                     </div>
                 </section>
-                <section class="col-4 main">
-                    <div id="day">
-                        FRIDAY
-                    </div>
-                    <div>
-                       <span class="currentweather" id="currentweather"> RAINY </span>
-                    </div>
-                    <i class="fas fa-cloud-sun-rain bigicon"></i> <br />
-                    <span class="currenttemprature" id="currenttemprature">
-                        10
-                    </span>
-                    <span class="currenttemprature" id="temperaturesymbol">°C</span>
+                <section class="col-4">
+                    <button class="temperaturechoose" id="fahrenheit">F / C</button>
+                    <img class="bigicon" id="bigicon" />
+                    
+                    <div class="additionalinformation">wind speed: 100 km/h</div>
+                    <div class="additionalinformation">humidity: 95%</div>
+                    <div class="additionalinformation">precipitation: 30%</div>
                 </section>
-                 <section class="col-1">
-                     <button class="temperaturechoose" id="fahrenheit">F</button>
-                    <button class="temperaturechoose" id="celcius">C</button>
-                 </section>
             </div>
             <hr>
             <section class="nextdays">

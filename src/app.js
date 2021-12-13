@@ -30,7 +30,10 @@ function displayWeatherCondition(response){
   document.querySelector("#currenttemprature").innerHTML = Math.round(response.data.main.temp);
   document.querySelector("#feelstemprature").innerHTML = Math.round(response.data.main.feels_like);
   document.querySelector("#currentweather").innerHTML = response.data.weather[0].description;
+  let iconElement = document.querySelector("#bigicon");
 
+iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 // function for the onload search for Berlin

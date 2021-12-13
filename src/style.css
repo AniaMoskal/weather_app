@@ -5,8 +5,15 @@ body{
     font-weight: 900;
     padding-top: 20px;
     text-transform: uppercase;
-
 }
+.cityname {
+    font-size: 35px;
+    color: #BAD8FC;
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+}
+
 .container {
   max-width: 600px;
   margin: 0 auto;
@@ -17,7 +24,15 @@ body{
 }
 
 .main {
-    font-size: 25px;
+    font-size: 35px;
+    color: #BAD8FC;
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+}
+
+.additionalinformation {
+    font-size: 10px;
     color: #BAD8FC;
     display: block;
     font-family: 'Montserrat', sans-serif;
@@ -42,8 +57,7 @@ body{
     font-size: 80px;
     color: #FCFCD4;
     text-align: center;
-    padding: 15px 0 0 15px;
-    margin-bottom: 40px;
+    margin: 60px 0px 50px 0px; 
 
     
 }
@@ -52,10 +66,9 @@ body{
     background-color: #FCFCD4;
     border-color: #FCFCD4;
     font-weight: 900;
-    width: 50px;
+    width: 150px;
     box-shadow: 2px 2px 1px #aaaaaa;
-    margin-left: 70px;
-    margin-top: 15px;
+    margin: 0px 0px 0px 0px; 
     border-radius: 4px;
 }
  
@@ -67,6 +80,7 @@ body{
     transition-timing-function: ease-in-out;
     box-shadow: 4px 4px 3px #aaaaaa;
 }
+
 
 hr {
    display: block;
