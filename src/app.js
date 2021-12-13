@@ -30,17 +30,14 @@ function displayWeatherCondition(response){
   document.querySelector("#currenttemprature").innerHTML = Math.round(response.data.main.temp);
   document.querySelector("#feelstemprature").innerHTML = Math.round(response.data.main.feels_like);
   document.querySelector("#currentweather").innerHTML = response.data.weather[0].description;
-  let iconElement = document.querySelector("#bigicon");
 
-iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 // function for the onload search for Berlin
 
 function searchCity(city) {
   let apiKey = "4e13aa90127904d13b6a4af59475dbf3";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
@@ -70,7 +67,7 @@ searchForm.addEventListener("submit", handleSubmit);
 
 function searchLocation(position) {
   let apiKey = "4e13aa90127904d13b6a4af59475dbf3";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  let apiUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
