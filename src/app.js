@@ -28,7 +28,6 @@ function displayWeatherCondition(response){
   
   let iconElement = document.querySelector("#bigicon");
 
-
 iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 iconElement.setAttribute("alt", response.data.weather[0].description);
 }
@@ -74,9 +73,14 @@ function convertToFahrenheit(event)
   let temperatureElement = document.querySelector("#currenttemprature");
   let currenttemprature = temperatureElement.innerHTML;
   temperatureElement.innerHTML = Math.round((currenttemprature * 9) / 5 + 32);
+  // feels like
+  let temperaturefeelslikeElement = document.querySelector("#feelstemprature");
+  let feelstemprature = temperaturefeelslikeElement.innerHTML;
+  temperaturefeelslikeElement.innerHTML = Math.round((feelstemprature * 9) / 5 + 32);
 }
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", convertToFahrenheit);
+
 // C - F
 function convertToFahrenheitSymbol(event)
 {
@@ -84,9 +88,14 @@ function convertToFahrenheitSymbol(event)
   let temperatureSymbolElement = document.querySelector("#temperaturesymbol");
   let temperaturesymbol = temperatureSymbolElement.innerHTML;
   temperatureSymbolElement.innerHTML = "°F";
+// feels like
+  let temperaturefeelslikeSymbolElement = document.querySelector("#feelstempraturesymbol");
+  let feelstempraturesymbol = temperaturefeelslikeSymbolElement.innerHTML;
+  temperaturefeelslikeSymbolElement.innerHTML = "°F";
 }
 let fahrenheitsymbol = document.querySelector("#fahrenheit");
 fahrenheitsymbol.addEventListener("click", convertToFahrenheitSymbol);
+
 // changing F to C on a clik (with fake data)
 function convertToCelcius(event)
 {
@@ -94,6 +103,10 @@ function convertToCelcius(event)
   let temperatureElement = document.querySelector("#currenttemprature");
   let currenttemprature = temperatureElement.innerHTML;
   temperatureElement.innerHTML = Math.round((currenttemprature - 32) * 5 / 9);
+  // feels like 
+  let temperaturefeelslikeElement = document.querySelector("#feelstemprature");
+  let feelstemprature = temperaturefeelslikeElement.innerHTML;
+  temperaturefeelslikeElement.innerHTML = Math.round((feelstemprature - 32) * 5 / 9);
 }
 let celcius = document.querySelector("#celcius");
 celcius.addEventListener("click", convertToCelcius);
@@ -104,6 +117,10 @@ function convertToCelciusSymbol(event)
   let temperatureSymbolElement = document.querySelector("#temperaturesymbol");
   let temperaturesymbol = temperatureSymbolElement.innerHTML;
   temperatureSymbolElement.innerHTML = "°C";
+// feels like
+  let temperaturefeelslikeSymbolElement = document.querySelector("#feelstempraturesymbol");
+  let feelstempraturesymbol = temperaturefeelslikeSymbolElement.innerHTML;
+  temperaturefeelslikeSymbolElement.innerHTML = "°C";
 }
 let celciussymbol = document.querySelector("#celcius");
 celciussymbol.addEventListener("click", convertToCelciusSymbol);
