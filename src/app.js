@@ -85,7 +85,7 @@ function convertToFahrenheit(event)
   let temperaturefeelslikeElement = document.querySelector("#feelstemprature");
   if (temperatureSymbolElement.innerHTML !== "°F") {
   let feelstemprature = temperaturefeelslikeElement.innerHTML;
-  temperaturefeelslikeElement.innerHTML = Math.round((celciusTemperature * 9) / 5 + 32);}
+  temperaturefeelslikeElement.innerHTML = Math.round((celciusfeelslikeTemperature * 9) / 5 + 32);}
 }
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", convertToFahrenheit);
