@@ -17,7 +17,8 @@ timeElement.innerHTML = `${hours}:${minutes}`;
 
 // displaying a name of the city after a user submts the form
 // funtion for the weather condition that we mention in the function below
-function displayWeatherCondition(response){
+function displayWeatherCondition(response)
+{
   console.log(response.data.name);
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#currenttemprature").innerHTML = Math.round(response.data.main.temp);
@@ -30,27 +31,26 @@ function displayWeatherCondition(response){
   let sunriseTime = new Date(response.data.sys.sunrise * 1000);
   let sunrisehours = sunriseTime.getHours();
   let sunriseminutes = sunriseTime.getMinutes();
-  if (sunriseminutes < 10) {
-  sunriseminutes = `0${sunriseminutes}`;
-}
-sunriseElement.innerHTML = `${sunrisehours}:${sunriseminutes}`;
+    if (sunriseminutes < 10) {
+    sunriseminutes = `0${sunriseminutes}`;
+  }
+  sunriseElement.innerHTML = `${sunrisehours}:${sunriseminutes}`;
 
-let sunsetElement = document.querySelector("#sunset");
-let sunsetTime = new Date(response.data.sys.sunset * 1000);
-let sunsethours = sunsetTime.getHours();
-let sunsetminutes = sunsetTime.getMinutes();
-  if (sunsetminutes < 10) {
+  let sunsetElement = document.querySelector("#sunset");
+  let sunsetTime = new Date(response.data.sys.sunset * 1000);
+  let sunsethours = sunsetTime.getHours();
+  let sunsetminutes = sunsetTime.getMinutes();
+    if (sunsetminutes < 10) {
     sunsetminutes = `0${sunsetminutes}`
   }
-sunsetElement.innerHTML = `${sunsethours}:${sunsetminutes}`;
+  sunsetElement.innerHTML = `${sunsethours}:${sunsetminutes}`;
 
-  let iconElement = document.querySelector("#bigicon");
 
-  celciusTemperature = response.data.main.temp;
-  celciusfeelslikeTemperature = Math.round(response.data.main.feels_like);
-
-iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-iconElement.setAttribute("alt", response.data.weather[0].description);
+celciusTemperature = response.data.main.temp;
+celciusfeelslikeTemperature = Math.round(response.data.main.feels_like);
+  
+let iconElement = document.querySelector("#bigicon");
+iconElement.setAttribute("class", `wi wi-owm-${response.data.weather[0].id} bigicon`);
 }
 
 // function for the onload search for Berlin
