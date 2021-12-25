@@ -4,7 +4,7 @@ let currentDay = new Date();
 let day = currentDay.getDay(); 
 let days = ["Sunday", "Monday", "Tuesday", "Wednsday", "Thursday", "Friday", "Saturday"];
 dayElement.innerHTML = `${days[day]}`;
-// showing current time + added ) in front of minutes
+// showing current time + added 0 in front of minutes
 let timeElement = document.querySelector("#time");
 let currentTime = new Date();
 let hours = currentTime.getHours();
@@ -13,6 +13,7 @@ if (minutes < 10) {
   minutes = `0${minutes}`;
 }
 timeElement.innerHTML = `${hours}:${minutes}`;
+
 
 // displaying a name of the city after a user submts the form
 // funtion for the weather condition that we mention in the function below
@@ -24,8 +25,24 @@ function displayWeatherCondition(response){
   document.querySelector("#currentweather").innerHTML = response.data.weather[0].main;
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#sunrise").innerHTML = response.data.sys.sunrise;
-  document.querySelector("#sunset").innerHTML = response.data.sys.sunset;
+
+  let sunriseElement = document.querySelector("#sunrise");
+  let sunriseTime = new Date(response.data.sys.sunrise * 1000);
+  let sunrisehours = sunriseTime.getHours();
+  let sunriseminutes = sunriseTime.getMinutes();
+  if (sunriseminutes < 10) {
+  sunriseminutes = `0${sunriseminutes}`;
+}
+sunriseElement.innerHTML = `${sunrisehours}:${sunriseminutes}`;
+
+let sunsetElement = document.querySelector("#sunset");
+let sunsetTime = new Date(response.data.sys.sunset * 1000);
+let sunsethours = sunsetTime.getHours();
+let sunsetminutes = sunsetTime.getMinutes();
+  if (sunsetminutes < 10) {
+    sunsetminutes = `0${sunsetminutes}`
+  }
+sunsetElement.innerHTML = `${sunsethours}:${sunsetminutes}`;
 
   let iconElement = document.querySelector("#bigicon");
 
