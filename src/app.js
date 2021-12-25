@@ -13,6 +13,7 @@ if (minutes < 10) {
   minutes = `0${minutes}`;
 }
 timeElement.innerHTML = `${hours}:${minutes}`;
+
 // displaying a name of the city after a user submts the form
 // funtion for the weather condition that we mention in the function below
 function displayWeatherCondition(response){
@@ -25,8 +26,10 @@ function displayWeatherCondition(response){
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#sunrise").innerHTML = response.data.sys.sunrise;
   document.querySelector("#sunset").innerHTML = response.data.sys.sunset;
-  
+
   let iconElement = document.querySelector("#bigicon");
+
+  celciusTemperature = response.data.main.temp;
 
 iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 iconElement.setAttribute("alt", response.data.weather[0].description);
@@ -38,6 +41,7 @@ function searchCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeatherCondition);
 }
+
 function handleSubmit(event) {
   event.preventDefault();
   // let cityElement = document.querySelector("#city");
@@ -53,6 +57,7 @@ function handleSubmit(event) {
   // calling for the search city function so search for other cities will work 
   searchCity(city);
 }
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 // API for current location
@@ -70,13 +75,16 @@ function getCurrentLocation (event) {
 function convertToFahrenheit(event)
 {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#currenttemprature");
-  let currenttemprature = temperatureElement.innerHTML;
-  temperatureElement.innerHTML = Math.round((currenttemprature * 9) / 5 + 32);
+  let temperatureSymbolElement = document.querySelector("#temperaturesymbol");
+    if (temperatureSymbolElement.innerHTML !== "°F"){
+    let temperatureElement = document.querySelector("#currenttemprature");
+    let currenttemprature = temperatureElement.innerHTML;
+  temperatureElement.innerHTML = Math.round((celciusTemperature * 9) / 5 + 32);}
   // feels like
   let temperaturefeelslikeElement = document.querySelector("#feelstemprature");
+  if (temperatureSymbolElement.innerHTML !== "°F") {
   let feelstemprature = temperaturefeelslikeElement.innerHTML;
-  temperaturefeelslikeElement.innerHTML = Math.round((feelstemprature * 9) / 5 + 32);
+  temperaturefeelslikeElement.innerHTML = Math.round((celciusTemperature * 9) / 5 + 32);}
 }
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", convertToFahrenheit);
@@ -96,20 +104,24 @@ function convertToFahrenheitSymbol(event)
 let fahrenheitsymbol = document.querySelector("#fahrenheit");
 fahrenheitsymbol.addEventListener("click", convertToFahrenheitSymbol);
 
-// changing F to C on a clik (with fake data)
+// changing F to C on a clik 
 function convertToCelcius(event)
 {
   event.preventDefault();
+  let temperatureSymbolElement = document.querySelector("#temperaturesymbol");
+    if (temperatureSymbolElement.innerHTML !== "°C") {
   let temperatureElement = document.querySelector("#currenttemprature");
   let currenttemprature = temperatureElement.innerHTML;
-  temperatureElement.innerHTML = Math.round((currenttemprature - 32) * 5 / 9);
+  temperatureElement.innerHTML = Math.round(celciusTemperature);}
   // feels like 
   let temperaturefeelslikeElement = document.querySelector("#feelstemprature");
+    if (temperatureSymbolElement.innerHTML !== "°C") {
   let feelstemprature = temperaturefeelslikeElement.innerHTML;
-  temperaturefeelslikeElement.innerHTML = Math.round((feelstemprature - 32) * 5 / 9);
+  temperaturefeelslikeElement.innerHTML = Math.round(celciusTemperature);}
 }
 let celcius = document.querySelector("#celcius");
 celcius.addEventListener("click", convertToCelcius);
+
 // F - C
 function convertToCelciusSymbol(event)
 {
@@ -127,5 +139,10 @@ celciussymbol.addEventListener("click", convertToCelciusSymbol);
 // adding current location button 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+// making the button change the tempatyre only once when clicked 
+let celciusTemperature = null; 
+let fahrenheitTemperature = null;
+
 // calling a city on load 
 searchCity("Berlin");
