@@ -30,6 +30,7 @@ function displayWeatherCondition(response){
   let iconElement = document.querySelector("#bigicon");
 
   celciusTemperature = response.data.main.temp;
+  celciusfeelslikeTemperature = Math.round(response.data.main.feels_like);
 
 iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 iconElement.setAttribute("alt", response.data.weather[0].description);
@@ -117,7 +118,7 @@ function convertToCelcius(event)
   let temperaturefeelslikeElement = document.querySelector("#feelstemprature");
     if (temperatureSymbolElement.innerHTML !== "°C") {
   let feelstemprature = temperaturefeelslikeElement.innerHTML;
-  temperaturefeelslikeElement.innerHTML = Math.round(celciusTemperature);}
+  temperaturefeelslikeElement.innerHTML = celciusfeelslikeTemperature;}
 }
 let celcius = document.querySelector("#celcius");
 celcius.addEventListener("click", convertToCelcius);
@@ -142,6 +143,7 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 
 // making the button change the tempatyre only once when clicked 
 let celciusTemperature = null; 
+let celciusfeelslikeTemperature = null ;
 let fahrenheitTemperature = null;
 
 // calling a city on load 
