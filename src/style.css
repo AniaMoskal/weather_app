@@ -3,9 +3,8 @@
 body{
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
-    padding-top: 10px;
+    padding-top: 5px;
     text-transform: uppercase;
-    
 
 }
 .container {
@@ -14,15 +13,41 @@ body{
 }
 
 .card {
-    background: black;
+    background: #1B1C1C;
 }
 
 .main {
-    font-size: 35px;
+    font-size: 23px;
     color: #BAD8FC;
     display: block;
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
+    text-align: center;
+}
+
+.maindata
+{
+    margin: -40px 0px 0px 0px;
+}
+
+.adds {
+    font-size: 11px;
+    color: #BAD8FC;
+    text-align: left;
+    font-weight: 800;
+}
+
+
+.feelstemprature {
+    color: #B38495;
+   
+}
+.addstwo {
+    margin: 0px 0px 0px 20px;
+}
+
+.secondary {
+    padding: 120px 0px 0px 0px;
 }
 
 .cityname {
@@ -37,21 +62,21 @@ body{
     font-style: italic;
     color: #113652;
     background: #FCFCD4;
+    text-align: center;
+    margin: 0px 0px 0px 0px;
 }
 
 .currenttemprature{
     color: #EBB9CB;
+    margin: 0px 0px 0px 0px;
 }
 
-.feelstemprature {
-    color: #B38495;
-}
 
 .bigicon {
-    font-size: 80px;
+    font-size: 60px;
     color: #FCFCD4;
     text-align: center;
-    margin: 0px 0px 80px 10px;
+    margin: 30px 0px 30px 0px;
     
 }
 
@@ -61,7 +86,8 @@ body{
     display: block;
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
-    margin: 0px 0px 0px 12px;
+    margin: 150px 0px 0px 12px;
+    text-align: left;
 }
 
 .temperaturechoose {
@@ -69,10 +95,11 @@ body{
     background-color: #FCFCD4;
     border-color: #FCFCD4;
     font-weight: 900;
-    width: 50px;
+    width: 30px;
     box-shadow: 2px 2px 1px #aaaaaa;
-    margin: 50px 0px 10px 10px;
+    margin: 10px -220px 10px 220px;
     border-radius: 4px;
+    font-size: 12px;
 }
  
 .temperaturechoose:hover {
@@ -97,9 +124,13 @@ hr {
     margin-left: -10px;
 }
 
+.results{
+    color: #EBB9CB;
+}
+
 .smallweathercard{
-    background: black;
-    border-color: black;
+    background: #1B1C1C;
+    border-color: #1B1C1C;
 }
 
 .smallday {
@@ -148,6 +179,11 @@ hr {
     font-weight: 400;
 }
 
+.form-control{
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
 
 .btn-light {
     color: #EBB9CB;
@@ -156,6 +192,8 @@ hr {
     font-weight: 900;
     width: 115px;
     box-shadow: 5px 5px 2px #aaaaaa;
+    font-size: 13px;
+    text-transform: uppercase;
 }
 
 .btn-light:hover 
@@ -176,6 +214,8 @@ hr {
     font-weight: 900;
     width: 115px;
     box-shadow: 5px 5px 2px #aaaaaa;
+    font-size: 13px;
+    text-transform: uppercase;
 }
 
 .btn-success:hover 
@@ -186,7 +226,6 @@ hr {
     font-weight: 900;
     transition-timing-function: ease-in-out;
     box-shadow: 10px 10px 5px #aaaaaa;
-    
 }
 
 .advice {

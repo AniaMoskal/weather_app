@@ -26,6 +26,8 @@ function displayWeatherCondition(response)
   document.querySelector("#currentweather").innerHTML = response.data.weather[0].main;
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#mintemp").innerHTML =  Math.round(response.data.main.temp_min);
+  document.querySelector("#maxtemp").innerHTML =  Math.round(response.data.main.temp_max);
 
   let sunriseElement = document.querySelector("#sunrise");
   let sunriseTime = new Date(response.data.sys.sunrise * 1000);
@@ -48,6 +50,8 @@ function displayWeatherCondition(response)
 
 celciusTemperature = response.data.main.temp;
 celciusfeelslikeTemperature = Math.round(response.data.main.feels_like);
+celciusminTemperature = Math.round(response.data.main.temp_min);
+celciusmaxTemperature = Math.round(response.data.main.temp_max);
   
 let iconElement = document.querySelector("#bigicon");
 iconElement.setAttribute("class", `wi wi-owm-${response.data.weather[0].id} bigicon`);
@@ -103,6 +107,18 @@ function convertToFahrenheit(event)
   if (temperatureSymbolElement.innerHTML !== "°F") {
   let feelstemprature = temperaturefeelslikeElement.innerHTML;
   temperaturefeelslikeElement.innerHTML = Math.round((celciusfeelslikeTemperature * 9) / 5 + 32);}
+  // min temp 
+  let temperatureminElement = document.querySelector("#mintemp");
+  if (temperatureSymbolElement.innerHTML !== "°F") {
+    let temperaturemin = temperatureminElement.innerHTML;
+    temperatureminElement.innerHTML = Math.round((celciusminTemperature * 9) / 5 + 32);
+  }
+  // max temp 
+  let temperaturemaxElement = document.querySelector("#maxtemp");
+  if (temperatureSymbolElement.innerHTML !== "°F") {
+    let temperaturemax = temperaturemaxElement.innerHTML;
+    temperaturemaxElement.innerHTML = Math.round((celciusmaxTemperature * 9) / 5 + 32);
+  }
 }
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", convertToFahrenheit);
@@ -114,10 +130,18 @@ function convertToFahrenheitSymbol(event)
   let temperatureSymbolElement = document.querySelector("#temperaturesymbol");
   let temperaturesymbol = temperatureSymbolElement.innerHTML;
   temperatureSymbolElement.innerHTML = "°F";
-// feels like
+  // feels like
   let temperaturefeelslikeSymbolElement = document.querySelector("#feelstempraturesymbol");
   let feelstempraturesymbol = temperaturefeelslikeSymbolElement.innerHTML;
   temperaturefeelslikeSymbolElement.innerHTML = "°F";
+  // min temp
+  let temperatureminSymbolElement = document.querySelector("#temperatureminsymbol");
+  let temperatureminsymbol = temperatureminSymbolElement.innerHTML;
+  temperatureminSymbolElement.innerHTML = "°F";
+  // max temp 
+  let temperaturemaxSymbolElement = document.querySelector("#temperaturemaxsymbol");
+  let temperaturemaxsymbol = temperaturemaxSymbolElement.innerHTML;
+  temperaturemaxSymbolElement.innerHTML = "°F";
 }
 let fahrenheitsymbol = document.querySelector("#fahrenheit");
 fahrenheitsymbol.addEventListener("click", convertToFahrenheitSymbol);
@@ -136,6 +160,18 @@ function convertToCelcius(event)
     if (temperatureSymbolElement.innerHTML !== "°C") {
   let feelstemprature = temperaturefeelslikeElement.innerHTML;
   temperaturefeelslikeElement.innerHTML = celciusfeelslikeTemperature;}
+  // min temp 
+  let temperatureminElement = document.querySelector("#mintemp");
+  if (temperatureSymbolElement.innerHTML !== "°C") {
+    let temperaturemin = temperatureminElement.innerHTML;
+    temperatureminElement.innerHTML = celciusminTemperature;
+  }
+  // max temp 
+  let temperaturemaxElement = document.querySelector("#maxtemp");
+  if (temperatureSymbolElement.innerHTML !== "°C") {
+    let temperaturemax = temperaturemaxElement.innerHTML;
+    temperaturemaxElement.innerHTML = celciusmaxTemperature;
+  }
 }
 let celcius = document.querySelector("#celcius");
 celcius.addEventListener("click", convertToCelcius);
@@ -147,13 +183,22 @@ function convertToCelciusSymbol(event)
   let temperatureSymbolElement = document.querySelector("#temperaturesymbol");
   let temperaturesymbol = temperatureSymbolElement.innerHTML;
   temperatureSymbolElement.innerHTML = "°C";
-// feels like
+  // feels like
   let temperaturefeelslikeSymbolElement = document.querySelector("#feelstempraturesymbol");
   let feelstempraturesymbol = temperaturefeelslikeSymbolElement.innerHTML;
   temperaturefeelslikeSymbolElement.innerHTML = "°C";
+  // min temp 
+  let temperatureminSymbolElement = document.querySelector("#temperatureminsymbol");
+  let temperatureminsymbol = temperatureminSymbolElement.innerHTML;
+  temperatureminSymbolElement.innerHTML = "°C";
+  //
+  let temperaturemaxSymbolElement = document.querySelector("#temperaturemaxsymbol");
+  let temperaturemaxsymbol = temperaturemaxSymbolElement.innerHTML;
+  temperaturemaxSymbolElement.innerHTML = "°C";
 }
 let celciussymbol = document.querySelector("#celcius");
 celciussymbol.addEventListener("click", convertToCelciusSymbol);
+
 // adding current location button 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
